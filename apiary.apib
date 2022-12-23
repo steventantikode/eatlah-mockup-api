@@ -1,0 +1,600 @@
+FORMAT: 1A
+HOST: https://eatlahjkt.com/
+
+# Eatlah
+
+Polls is a simple API allowing consumers to view polls and vote in them.
+
+## Authentication [/authentication]
+
+### Logging In (Customer)[POST/login_customer]
+
+<b>Menu: </b> Customer (Login Landing) <br>
+<b>Fungsi: </b> Menu authentikasi login untuk customer
+
++ Request
+    + Attributes
+        + phone: "+6287828270111" (string, required) - Nomor telepon customer.
+
++ Response 200 (application/json)
+
+        [
+            {
+                "success": true,
+                "message": "Login succesfully!",
+                "code": 200,
+                "data": [
+                    {
+                        "id": "1",
+                        "phone": "+6287828270111",
+                        "name": "Donna Boyle",
+                        "email": "donna.boyle@gmail.com",
+                        "email_is_verified": "yes",
+                        "role": "customer",
+                        "total_stamp_active": 4,
+                        "created_date": "2022-07-01 15:00:00"
+                    }
+                ]
+            }
+        ]
+        
+### Logging In (Cashier)[POST/login_cashier]
+
+<b>Menu: </b> Cashier (Login Landing) <br>
+<b>Fungsi: </b> Menu authentikasi login untuk cashier
+
++ Request
+    + Attributes
+        + username: "eatlah_bintaro" (string, required) - Username cashier
+        + password: "TYRhyuisj67HY2HgsujeIO90L" (string, required) - Password cashier
+
++ Response 200 (application/json)
+
+        [
+            {
+                "success": true,
+                "message": "Login succesfully!",
+                "code": 200,
+                "data": [
+                    {
+                        "id": "1",
+                        "username": "eatlah_bintaro",
+                        "name": "Eatlah Bintaro",
+                        "email": "eatlah.bintaro@gmail.com",
+                        "email_is_verified": "no",
+                        "role": "cashier",
+                        "created_date": "2022-07-01 15:00:00"
+                    }
+                ]
+            }
+        ]
+     
+### Logging Out [POST/logout]
+
+<b>Menu 1: </b> Customer (Navigation) <br>
+<b>Menu 2: </b> Cashier (Menu - Navigasi) <br>
+<b>Fungsi: </b> Menu authentikasi logout untuk customer dan cashier
+
++ Response 200 (application/json)
+
+        [
+            {
+                "success": true,
+                "message": "Logout succesfully!",
+                "code": 200,
+                "data": []
+            }
+        ]
+
+## User Management [/user]
+
+### Get All List Users [GET]
+
++ Response 200 (application/json)
+
+        [
+            {
+                "success": true,
+                "message": "Data successfully loaded!",
+                "code": 200,
+                "data": [
+                    {
+                        "id": "1",
+                        "phone": "+6287828270111",
+                        "name": "Donna Boyle",
+                        "email": "donna.boyle@gmail.com",
+                        "email_is_verified": "yes",
+                        "role": "customer",
+                        "total_stamp_active": 4,
+                        "created_date": "2022-07-01 15:00:00"
+                    }, {
+                        "id": "2",
+                        "phone": "+6287828270112",
+                        "name": "Mercedes Schamberger",
+                        "email": "mercedes.schamberger@gmail.com",
+                        "email_is_verified": "no",
+                        "role": "customer",
+                        "total_stamp_active": 4,
+                        "created_date": "2022-07-01 15:00:00"
+                    }, {
+                        "id": "3",
+                        "phone": "+6287828270113",
+                        "name": "Jan Fisher",
+                        "email": "jan.fisher@gmail.com",
+                        "email_is_verified": "no",
+                        "role": "customer",
+                        "total_stamp_active": 4,
+                        "created_date": "2022-07-01 15:00:00"
+                    }, {
+                        "id": "4",
+                        "phone": "+6287828270114",
+                        "name": "Patsy Nitzsche",
+                        "email": "patsy.nitzsche@gmail.com",
+                        "email_is_verified": "yes",
+                        "role": "cashier",
+                        "total_stamp_active": 0,
+                        "created_date": "2022-07-01 15:00:00"
+                    }, {
+                        "id": "5",
+                        "phone": "+6287828270115",
+                        "name": "Freddie Kertzmann",
+                        "email": "freddie.kertzmann@gmail.com",
+                        "email_is_verified": "yes",
+                        "role": "cashier",
+                        "total_stamp_active": 0,
+                        "created_date": "2022-07-01 15:00:00"
+                    }, {
+                        "id": "6",
+                        "phone": "+6287828270116",
+                        "name": "Miss Krystal Runolfsson",
+                        "email": "miss.krystal.runolfsson@gmail.com",
+                        "email_is_verified": "yes",
+                        "role": "customer",
+                        "total_stamp_active": 4,
+                        "created_date": "2022-07-01 15:00:00"
+                    }, {
+                        "id": "7",
+                        "phone": "+6287828270117",
+                        "name": "Dolores Bechtelar",
+                        "email": "dolores.bechtelar@gmail.com",
+                        "email_is_verified": "yes",
+                        "role": "customer",
+                        "total_stamp_active": 4,
+                        "created_date": "2022-07-01 15:00:00"
+                    }, {
+                        "id": "8",
+                        "phone": "+6287828270118",
+                        "name": "David Crist",
+                        "email": "david.crist@gmail.com",
+                        "email_is_verified": "yes",
+                        "role": "customer",
+                        "total_stamp_active": 4,
+                        "created_date": "2022-07-01 15:00:00"
+                    }, {
+                        "id": "9",
+                        "phone": "+6287828270119",
+                        "name": "Wilfred Lueilwitz",
+                        "email": "wilfred.lueilwitz@gmail.com",
+                        "email_is_verified": "yes",
+                        "role": "customer",
+                        "total_stamp_active": 4,
+                        "created_date": "2022-07-01 15:00:00"
+                    }, {
+                        "id": "10",
+                        "phone": "+6287828270120",
+                        "name": "John Doe",
+                        "email": "john.doe@gmail.com",
+                        "email_is_verified": "yes",
+                        "role": "superadmin",
+                        "total_stamp_active": 0,
+                        "created_date": "2022-07-01 15:00:00"
+                    },
+                ]
+            }
+        ]
+        
+### Get Spesific User by ID [GET/user/id={id}]
+
++ Parameters
+    + id (number, required)
+
++ Response 200 (application/json)
+
+        [
+            {
+                "success": true,
+                "message": "Data successfully loaded!",
+                "code": 200,
+                "data": [
+                    {
+                        "id": "4",
+                        "phone": null,
+                        "username": "patsy-nitzsche",
+                        "name": "Patsy Nitzsche",
+                        "email": "patsy.nitzsche@gmail.com",
+                        "email_is_verified": "yes",
+                        "role": "cashier",
+                        "total_stamp_active": 0,
+                        "created_date": "2022-07-01 15:00:00"
+                    }
+                ]
+            }
+        ]
+        
+### Get Spesific User by Phone Number [GET/user/phone={phone}]
+
++ Parameters
+    + phone (string, required)
+
++ Response 200 (application/json)
+
+        [
+            {
+                "success": true,
+                "message": "Data successfully loaded!",
+                "code": 200,
+                "data": [
+                    {
+                        "id": "8",
+                        "phone": "+6287828270118",
+                        "name": "David Crist",
+                        "email": "david.crist@gmail.com",
+                        "email_is_verified": "yes",
+                        "role": "customer",
+                        "total_stamp_active": 4,
+                        "created_date": "2022-07-01 15:00:00"
+                    }
+                ]
+            }
+        ]
+        
+### Creating New Customer [POST/register]
+
+<b>Menu: </b> Customer (Register) <br>
+<b>Fungsi: </b> Daftar user baru
+
++ Request
+    + Attributes
+        + phone: "+6287828270122" (string, required) - Nomor telepon customer
+        + name: "Tony Dee" (string, required) - Nama customer
+        + email: "tony.dee@gmail.com" (string, optional) - Email customer
+            
++ Response 200 (application/json)
+    + Body
+
+
+            {
+                "id": "10",
+                "phone": "+6287828270111",
+                "name": "Tony Dee",
+                "email": "tony.dee@gmail.com",
+                "email_is_verified": "no",
+                "role": "customer",
+                "total_stamp_active": 0,
+                "created_date": "2022-12-21 15:00:00"
+            }
+
+
+### Updating User [POST/update]
+
+<b>Menu 1: </b> Customer (Setting) <br>
+<b>Menu 2: </b> Customer (Setting - Add Email) <br>
+<b>Menu 3: </b> Customer (Setting - Change Email) <br>
+<b>Fungsi: </b> Update data customer
+
++ Request 
+    + Attributes
+        + phone: "+6287828270122" (string, required) - Nomor telepon customer.
+        + name: "Tony Dee" (string, required) - Nama customer.
+        + email: "tony.dee@gmail.com" (string, required) - Email customer.
+            
++ Response 200 (application/json)
+    + Body
+
+            [
+                {
+                    "success": true,
+                    "message": "Your information has been updated",
+                    "code": 200,
+                    "data": [
+                        {
+                            "phone": "+6287828270122",
+                            "name": "Tony Dee",
+                            "email": "tony.dee@gmail.com"
+                        }
+                    ]
+                }
+            ]
+
+## Stamp Management [/stamp]
+
+### Get User's Active Stamp [GET/stamp_active/{phone}]
+
+<b>Menu: </b> Customer (Home - Logged In) <br>
+<b>Fungsi: </b> Mendapatkan list stamp aktif customer
+
++ Parameters
+    + phone: "+6287828270111" (string, required) - Nomor telepon customer
+
++ Response 200 (application/json)
+
+        [
+            {
+                "success": true,
+                "message": "Loaded successfully",
+                "code": 200,
+                "data": [
+                    {
+                        "position": 1,
+                        "voucher_url_img_stamp": "https://www.eatlahjkt.com/rsc/stamp_default.png"
+                    }, {
+                        "position": 2,
+                        "voucher_url_img_stamp": "https://www.eatlahjkt.com/rsc/stamp_default.png"
+                    }, {
+                        "position": 3,
+                        "voucher_url_img_stamp": "https://www.eatlahjkt.com/rsc/stamp_default.png"
+                    }, {
+                        "position": 4,
+                        "voucher_url_img_stamp": "https://www.eatlahjkt.com/rsc/stamp_default.png"
+                    }, {
+                        "position": 5,
+                        "voucher_url_img_stamp": "https://www.eatlahjkt.com/rsc/stamp_free_upsize.png"
+                    }
+                ]
+            }
+        ]
+
+### Get Customer's Detail Stamp Collect [GET/stamp_collect/{phone}]
+
+<b>Menu: </b> Customer (Stamp History) <br>
+<b>Fungsi: </b> Mendapatkan detail history stamp customer
+
++ Parameters
+    + phone: "+6287828270111" (string, required) - Nomor telepon customer
+
++ Response 200 (application/json)
+
+        [
+            {
+                "success": true,
+                "message": "Loaded successfully",
+                "code": 200,
+                "data": [
+                    {
+                        "id_stamp": 1,
+                        "receipt_number": 65363172,
+                        "created_date": "20221202",
+                        "outlet_name": "Eatlah Bintaro, Tangerang Selatan",
+                        "total_stamp": 2,
+                        "total_invoice": 104000
+                    },
+                    {
+                        "id_stamp": 2,
+                        "receipt_number": 29323432,
+                        "created_date": "20221005",
+                        "outlet_name": "Eatlah Dago, Bandung",
+                        "total_stamp": 2,
+                        "total_invoice": 149500
+                    },
+                    {
+                        "id_stamp": 3,
+                        "receipt_number": 65363145,
+                        "created_date": "20220819",
+                        "outlet_name": "Eatlah Bintaro, Tangerang Selatan",
+                        "total_stamp": 1,
+                        "total_invoice": 75000
+                    }
+                ]
+            }
+        ]
+        
+### Get Outlet's Detail Stamp Give [GET/stamp_give/{id_outlet}]
+
+<b>Menu: </b> Cashier (Stamp History) <br>
+<b>Fungsi: </b> Mendapatkan detail history pemberian stamp dari outlet tertentu
+
++ Parameters
+    + id_outlet: 4 (number, required) - ID outlet
+
++ Response 200 (application/json)
+
+        [
+            {
+                "success": true,
+                "message": "Loaded successfully",
+                "code": 200,
+                "data": [
+                    {
+                        "id_stamp": 1,
+                        "receipt_number": 65363172,
+                        "created_date": "20221202",
+                        "outlet_name": "Eatlah Bintaro, Tangerang Selatan",
+                        "total_stamp": 2,
+                        "total_invoice": 104000
+                    },
+                    {
+                        "id_stamp": 3,
+                        "receipt_number": 65363145,
+                        "created_date": "20220819",
+                        "outlet_name": "Eatlah Bintaro, Tangerang Selatan",
+                        "total_stamp": 1,
+                        "total_invoice": 75000
+                    },
+                    {
+                        "id_stamp": 7,
+                        "receipt_number": 65371149,
+                        "created_date": "20221218",
+                        "outlet_name": "Eatlah Bintaro, Tangerang Selatan",
+                        "total_stamp": 1,
+                        "total_invoice": 99000
+                    }
+                ]
+            }
+        ]
+        
+### Updating Customer's Stamp [POST]
+
+<b>Menu: </b> Cashier (Beri Stamp) <br>
+<b>Fungsi: </b> Mengupdate jumlah stamp user, baik untuk menambahkan 
+                ataupun mereset setelah stamp mencapai maksimal)
+
++ Request
+    + Attributes
+        + phone: "+6287828270111" (string, required) - Nomor telepon customer
+        + receipt_number: 3721432432 (number, required) - Nomor invoice.
+        + total_invoice: 151000 (number, required) - Total invoice.
+
++ Response 200 (application/json)
+
+        [
+            {
+                "success": true,
+                "message": "User's stamp has been updated",
+                "code": 200,
+                "data": [
+                    {
+                        "stamp_collect": 3
+                    }
+                ]
+            }
+        ]
+        
+## Voucher Management [/voucher]
+
+### Get User's Detail Voucher Collect [GET/voucher_collect/{phone}]
+
+<b>Menu: </b> Customer (Voucher History) <br>
+<b>Fungsi: </b> Mendapatkan detail history voucher customer
+
++ Parameters
+    + phone: "+6287828270111" (string, required) - Nomor telepon customer
+
++ Response 200 (application/json)
+
+        [
+            {
+                "success": true,
+                "message": "Loaded successfully",
+                "code": 200,
+                "data": [
+                    {
+                        "id_voucher": 3,
+                        "expired_date": "20230101",
+                        "used_date": "20221229",
+                        "voucher_id": "73426272",
+                        "voucher_title": "Free Eatlah",
+                        "voucher_url_img_header": "https://www.eatlahjkt.com/rsc/hdr_eatlah.png",
+                        "reward_type": "Eatlah"
+                    },
+                    {
+                        "id_voucher": 1,
+                        "expired_date": "20221105",
+                        "used_date": null,
+                        "voucher_id": "73411142",
+                        "voucher_title": "Disc 50%",
+                        "voucher_url_img_header": "https://www.eatlahjkt.com/rsc/hdr_dic_50_prc.png",
+                        "reward_type": "Voucher"
+                    },
+                    {
+                        "id_voucher": 2,
+                        "expired_date": "20230101",
+                        "used_date": "20221229",
+                        "voucher_id": "73326542",
+                        "voucher_title": "Free Upsize or Drinklah",
+                        "voucher_url_img_header": "https://www.eatlahjkt.com/rsc/hdr_upsize_or_drinklah.png",
+                        "reward_type": "Upsize or Drinklah"
+                    }
+                ]
+            }
+        ]
+        
+### Get Outlet's Detail Voucher Give [GET/voucher_give/id_outlet}]
+
+<b>Menu: </b> Cashier (Reward History) <br>
+<b>Fungsi: </b> Mendapatkan detail history voucher yang diberikan outlet
+
++ Parameters
+    + id_outlet: 4 (number, required) - ID outlet
+
++ Response 200 (application/json)
+
+        [
+            {
+                "success": true,
+                "message": "Loaded successfully",
+                "code": 200,
+                "data": [
+                    {
+                        "id_voucher": 5,
+                        "outlet_name": "Eatlah Bintaro, Tangerang Selatan",
+                        "customer_phone": "+628789453534",
+                        "customer_name": "Belinda Natalie",
+                        "created_date": "20221201",
+                        "voucher_id": "73426272",
+                        "voucher_title": "Free Eatlah",
+                        "voucher_url_img_stamp": "https://www.eatlahjkt.com/rsc/stamp_eatlah.png"
+                    },
+                    {
+                        "id_voucher": 6,
+                        "outlet_name": "Eatlah Bintaro, Tangerang Selatan",
+                        "customer_phone": "+628789453534",
+                        "customer_name": "Belinda Natalie",
+                        "created_date": "20231201",
+                        "voucher_id": "73426273",
+                        "voucher_title": "Free Upsize or Drinklah",
+                        "voucher_url_img_stamp": "https://www.eatlahjkt.com/rsc/stamp_upsize_or_drinklah.png"
+                    },
+                    {
+                        "id_voucher": 12,
+                        "outlet_name": "Eatlah Bintaro, Tangerang Selatan",
+                        "customer_phone": "+628789453534",
+                        "customer_name": "Belinda Natalie",
+                        "created_date": "20231204",
+                        "voucher_id": "73426272",
+                        "voucher_title": "Free Eatlah",
+                        "voucher_url_img_stamp": "https://www.eatlahjkt.com/rsc/stamp_eatlah.png"
+                    }
+                ]
+            }
+        ]
+        
+### Adding Customer's Voucher [POST/add_voucher]
+
+<b>Menu: </b> Cashier (Beri Stamp) <br>
+<b>Fungsi: </b> Menambahkan voucher setelah stamp mencapai posisi tertentu
+
++ Request
+    + Attributes
+        + phone: "+6287828270111" (string, required) - Nomor telepon customer
+
++ Response 200 (application/json)
+
+        [
+            {
+                "success": true,
+                "message": "Voucher sucessfully added",
+                "code": 200,
+                "data": []
+            }
+        ]
+        
+### Using Customer's Voucher [POST/use_voucher]
+
+<b>Menu: </b> Cashier (Beri Reward) <br>
+<b>Fungsi: </b> Menggunakan voucher
+
++ Request
+    + Attributes
+        + phone: "+6287828270111" (string, required) - Nomor telepon customer
+        + voucher_id: 235432342 (number, required) - Nomor ID voucher
+
++ Response 200 (application/json)
+
+        [
+            {
+                "success": true,
+                "message": "Voucher successfully used",
+                "code": 200,
+                "data": []
+            }
+        ]
